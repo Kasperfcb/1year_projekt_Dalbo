@@ -1,0 +1,17 @@
+import network
+
+# Opret en Wi-Fi-adgangspunkt
+ap = network.WLAN(network.AP_IF)
+
+# Aktivér adgangspunktet
+ap.active(True)
+
+# Indstil SSID (navnet på dit adgangspunkt) og adgangskoden
+ssid = "Dør2"
+password = "dør1234"
+
+# Indstil adgangspunktskonfigurationen
+ap.config(essid=ssid, password=password)
+
+# Udskriv adgangspunktets IP-adresse
+print("Adgangspunktets IP-adresse:", ap.ifconfig()[0])
