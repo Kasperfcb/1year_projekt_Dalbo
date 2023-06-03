@@ -6,15 +6,15 @@ import machine
 from machine import Pin, ADC
 
 authmodes = ['Open', 'WEP', 'WPA-PSK', 'WPA2-PSK', 'WPA/WPA2-PSK']
-scan_interval = 0.5  # Interval in seconds between each scan
-battery_check_interval = 1  # Interval in seconds for checking the battery level
-battery_send_interval = 10  # Interval in seconds for sending the battery message
-pi_ip = "192.168.43.71"  # Replace with your Raspberry Pi's IP address
-pi_port = 8002  # Replace with the port number on which your Raspberry Pi is listening
-time_difference = 2  # Time difference in hours from UTC
+scan_interval = 0.5  # hvor ofte den skal scanne efter netværk
+battery_check_interval = 1  # hvor ofte den skal tjekke batteriniveau
+battery_send_interval = 10  # hvor ofte den skal sende batteriniveau
+pi_ip = "192.168.43.71"  # ip adressen på vores pi/computer
+pi_port = 8002  #port nummer som vores pi/computer lytter på
+time_difference = 2  # lægge to til på tiden i utc
 
-led_pin = Pin(32, Pin.OUT)  # GPIO pin number for the LED
-battery_threshold = 101  # LED will blink when battery level is below 10%
+led_pin = Pin(32, Pin.OUT)  # GPIO pin nummer for vores led 
+battery_threshold = 20  # led blinker hvis batteriniveau er under 20
 
 def connect_to_wifi(ssid, password):
     wlan = network.WLAN(network.STA_IF)
