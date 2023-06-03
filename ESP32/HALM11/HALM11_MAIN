@@ -101,8 +101,5 @@ while True:
         break
 
     print("Scanning completed.")
-    print("Waiting for next scan...")
-    print("")
-    utime.sleep(scan_interval)
 
 
