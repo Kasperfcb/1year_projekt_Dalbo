@@ -1,18 +1,17 @@
 import network
 
-# Opret en Wi-Fi-adgangspunkt
+# her opretter vi en Wi-Fi-accespoint
 ap = network.WLAN(network.AP_IF)
 
-# Aktivér adgangspunktet
+# Aktiver accespoint
 ap.active(True)
 
-# Indstil SSID (navnet på dit adgangspunkt) og adgangskoden
+# her sætter vi navnet på vores ssid og koden
 ssid = "Dør2"
 password = "dør1234"
 
-# Indstil adgangspunktskonfigurationen
+# her opretter vi netværket med det ssid og kode vi har angivet 
 ap.config(essid=ssid, password=password)
 
-# Udskriv adgangspunktets IP-adresse
+# Udskriv ip adrees på vores accespoint
 print("Adgangspunktets IP-adresse:", ap.ifconfig()[0])
-
