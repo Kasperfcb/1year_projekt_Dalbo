@@ -57,11 +57,10 @@ def measure_battery_percentage():
     percentage = (m_voltage - 3.0) / (4.2 - 3.0) * 100
     percentage = max(0, min(percentage, 100))
 
-    # Check if battery percentage is below threshold
     if percentage < battery_threshold:
-        led_pin.on()  # Turn on the LED
-        utime.sleep(0.5)  # Wait for 0.5 seconds
-        led_pin.off()  # Turn off the LED
+        led_pin.on()  
+        utime.sleep(0.5)  
+        led_pin.off() 
 
     return percentage
 
