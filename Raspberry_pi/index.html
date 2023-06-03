@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Databaseindhold</title>
+    <style>
+        body {
+            background-color: lightblue;
+        }
+        table {
+            border-collapse: collapse;
+            width: 100%;
+        }
+        th, td {
+            border: 1px solid black;
+            padding: 8px;
+            text-align: left;
+        }
+    </style>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/4.4.1/socket.io.js"></script>
+    <script>
+        var socket = io.connect();
+
+        socket.on('data_update', function(data) {
+            var tableBody = document.getElementById('table-body');
+            tableBody.innerHTML = '';
+            data.forEach(function(row) {
+                var tr = document.createElement('tr');
+                var td = document.createElement('td');
+                td.innerText = row[0];
+                tr.appendChild(td);
+                tableBody.appendChild(tr);
+            });
+        });
+    </script>
+</head>
+<body>
+    <h1>Databaseindhold:</h1>
+    <table>
+        <thead>
+            <tr>
+                <th>kolonne1</th>
+            </tr>
+        </thead>
+        <tbody id="table-body">
+            {% for row in data %}
+            <tr>
+                <td>{{ row[0] }}</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</body>
+</html>
