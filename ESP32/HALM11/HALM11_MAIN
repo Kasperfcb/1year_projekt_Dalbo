@@ -5,10 +5,10 @@ import ntptime
 import machine
 
 authmodes = ['Open', 'WEP', 'WPA-PSK', 'WPA2-PSK', 'WPA/WPA2-PSK']
-scan_interval = 1  # Interval in seconds between each scan
-pi_ip = "192.168.43.134"  # Replace with your Raspberry Pi's IP address
-pi_port = 8006  # Replace with the port number on which your Raspberry Pi is listening
-time_difference = 2  # Time difference in hours from UTC
+scan_interval = 1  # hvor tit skal den scanne efter netværk 
+pi_ip = "192.168.43.134"  # ip på vores pi/computer
+pi_port = 8006  # Den port som vores pi/computer skal lytte på
+time_difference = 2  # tid forksellen fra utc 
 
 def connect_to_wifi(ssid, password):
     wlan = network.WLAN(network.STA_IF)
